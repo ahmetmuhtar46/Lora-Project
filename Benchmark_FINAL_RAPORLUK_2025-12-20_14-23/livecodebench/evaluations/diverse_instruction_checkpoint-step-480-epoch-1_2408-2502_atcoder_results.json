@@ -1,0 +1,18 @@
+{
+  "model_name": "diverse_instruction_checkpoint-step-480-epoch-1",
+  "model_type": "diverse_instruction",
+  "checkpoint_path": "models/diverse_instruction/checkpoints/checkpoint-step-480-epoch-1",
+  "difficulty": "2408-2502_atcoder",
+  "num_problems": 41,
+  "timestamp": "2025-12-20T12:52:10.291973",
+  "stats": {
+    "total": 41,
+    "passed": 11,
+    "failed": 30,
+    "error": 0,
+    "no_tests": 0,
+    "pass_at_1": 0.2682926829268293
+  },
+  "pass_at_1": 0.2682926829268293,
+  "detailed_log": "results/livecodebench/detailed/diverse_instruction_checkpoint-step-480-epoch-1_2408-2502_atcoder.jsonl"
+}

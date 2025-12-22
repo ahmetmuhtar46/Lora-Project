@@ -1,0 +1,248 @@
+[
+  {
+    "question_id": "abc365_b",
+    "code_list": [
+      "# Read the input\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN = int(data[0])\nA = [int(x) for x in data[1:]]\n\n# Sort the list in descending order\nA.sort(reverse=True)\n\n# Extract the second largest element\nsecond_largest = A[1]\n\n# Print the result\nprint(second_largest)"
+    ]
+  },
+  {
+    "question_id": "abc365_a",
+    "code_list": [
+      "# Read the input value of Y\nY = int(input())\n\n# Determine the number of days in the year Y\nif Y % 4 == 0 and Y % 100 != 0:\n    days_in_year = 366\nelif Y % 400 == 0:\n    days_in_year = 366\nelse:\n    days_in_year = 365\n\n# Print the result\nprint(days_in_year)"
+    ]
+  },
+  {
+    "question_id": "abc366_b",
+    "code_list": [
+      "def fill_vertical_text(strings):\n    # Determine the maximum length M\n    max_length = max(len(s) for s in strings)\n    \n    # Create a set of possible characters\n    possible_chars = set()\n    for s in strings:\n        possible_chars.update(set(s))\n    \n    # Initialize the vertical text\n    vertical_text = [''] * max_length\n    \n    # Fill the vertical text\n    for i in range(max_length):\n        for s in strings:\n            if i < len(s):\n                vertical_text[i] += s[i]\n            else:\n                vertical_text[i] += '*'\n    \n    return vertical_text\n\n# Read input\nimport sys\ninput = sys.stdin.read\ndata = input().split()\n\n# Parse input\nN = int(data[0])\nstrings = data[1:]\n\n# Fill the vertical text\nvertical_text = fill_vertical_text(strings)\n\n# Print the result\nfor t in vertical_text:\n    print(t)"
+    ]
+  },
+  {
+    "question_id": "abc366_a",
+    "code_list": [
+      "# Read input\nN, T, A = map(int, input().split())\n\n# Calculate the difference between the number of votes for Takahashi and Aoki\ndifference = abs(T - A)\n\n# Check if the difference is less than or equal to half of the total number of votes\nif difference <= N // 2:\n    print(\"Yes\")\nelse:\n    print(\"No\")"
+    ]
+  },
+  {
+    "question_id": "abc367_a",
+    "code_list": [
+      "import sympy as sp\n\n# Define the variables\nA, B, C = sp.symbols('A B C')\n\n# Define the conditions\ncondition = sp.And(A < B, B < C)\n\n# Check if there is any time between A and C that is greater than A\nis_awake = sp.Or(B > A, C > A)\n\n# Simplify the condition\nsimplified_condition = sp.simplify(is_awake)\n\nprint(simplified_condition)"
+    ]
+  },
+  {
+    "question_id": "abc367_b",
+    "code_list": [
+      "def format_number(X):\n    # Convert the number to a string to easily manipulate the decimal part\n    num_str = str(X)\n    \n    # Find the index of the decimal point\n    decimal_index = num_str.find('.')\n    \n    # Extract the integer and fractional parts\n    integer_part = int(num_str[:decimal_index])\n    fractional_part = float(num_str[decimal_index+1:])\n    \n    # Remove trailing zeros from the fractional part\n    while fractional_part % 1 == 0:\n        fractional_part *= 10\n    \n    # Check if there is an unnecessary trailing decimal point\n    if fractional_part > 0 and fractional_part % 1 != 0:\n        fractional_part /= 10\n    \n    # Combine the integer and fractional parts\n    formatted_num = f\"{integer_part}.{fractional_part}\"\n    \n    return formatted_num\n\n# Example usage\nX = 1.012\nprint(format_number(X))  # Output: 1.012\n\nX = 12.340\nprint(format_number(X))  # Output: 12.34\n\nX = 99.900\nprint(format_number(X))  # Output: 99.9\n\nX = 0.000\nprint(format_number(X))  # Output: 0"
+    ]
+  },
+  {
+    "question_id": "abc368_a",
+    "code_list": [
+      "# Read input values\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN, K = map(int, data[:2])\nA = list(map(int, data[2:]))\n\n# Create a new list B to store the integers from top to bottom after the operation\nB = []\n\n# Append the first K elements of A to the end of B\nfor i in range(K):\n    B.append(A[i])\n\n# Append the remaining elements of A to the beginning of B\nfor i in range(N - K):\n    B.append(A[N - K + i])\n\n# Print the elements of B\nprint(' '.join(map(str, B)))"
+    ]
+  },
+  {
+    "question_id": "abc368_b",
+    "code_list": [
+      "def count_operations(N, A):\n    # Sort the array in descending order\n    A.sort(reverse=True)\n    \n    # Initialize the count of operations\n    operations = 0\n    \n    # Perform the operations until there is only one element left\n    while len(A) > 1:\n        # Decrease the first two elements by 1\n        A[0] -= 1\n        A[1] -= 1\n        \n        # Increment the operation counter\n        operations += 1\n    \n    return operations\n\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\n\n# Count the number of operations\nresult = count_operations(N, A)\n\n# Print the result\nprint(result)"
+    ]
+  },
+  {
+    "question_id": "abc369_a",
+    "code_list": [
+      "# Function to count the number of valid x\ndef count_valid_x(A, B):\n    # Check if A + B is even\n    if (A + B) % 2 != 0:\n        return 0\n    \n    # Calculate x using both expressions\n    x1 = 2 * B - A\n    x2 = (A + B) // 2\n    \n    # Check if both x1 and x2 are within the range [1, 100]\n    if 1 <= x1 <= 100 and 1 <= x2 <= 100:\n        return 2\n    elif 1 <= x1 <= 100:\n        return 1\n    elif 1 <= x2 <= 100:\n        return 1\n    else:\n        return 0\n\n# Read input\nA, B = map(int, input().split())\n\n# Count the number of valid x\nresult = count_valid_x(A, B)\nprint(result)"
+    ]
+  },
+  {
+    "question_id": "abc369_b",
+    "code_list": [
+      "def min_fatigue(N, A, S):\n    dp = [0] * 101  # Initialize the DP table with zeros\n    \n    for i in range(1, N + 1):\n        if S[i - 1] == 'L':\n            dp[A[i - 1]] += abs(A[i - 1] - i)\n        else:\n            dp[A[i - 1]] += abs(A[i - 1] - i)\n    \n    return min(dp)\n\n# Read input\nN = int(input())\nA = list(map(int, input().split()))\nS = list(input().split())\n\n# Calculate the minimum fatigue level\nresult = min_fatigue(N, A, S)\nprint(result)"
+    ]
+  },
+  {
+    "question_id": "abc370_a",
+    "code_list": [
+      "# Read input values for L and R\nL, R = map(int, input().split())\n\n# Check the conditions and print the appropriate output\nif L == 1 and R == 0:\n    print(\"Yes\")\nelif L == 1 and R == 1:\n    print(\"Invalid\")\nelse:\n    print(\"No\")"
+    ]
+  },
+  {
+    "question_id": "abc370_b",
+    "code_list": [
+      "def find_final_element(N, matrix):\n    # Initialize the current element as 1\n    current_element = 1\n    \n    # Iterate through the matrix to combine elements\n    for i in range(1, N + 1):\n        for j in range(i, N + 1):\n            if matrix[i - 1][j - 1] == current_element:\n                current_element = matrix[j - 1][i - 1]\n    \n    return current_element\n\n# Read input\nN = int(input())\nmatrix = []\nfor _ in range(N):\n    row = list(map(int, input().split()))\n    matrix.append(row)\n\n# Find and print the final element\nfinal_element = find_final_element(N, matrix)\nprint(final_element)"
+    ]
+  },
+  {
+    "question_id": "abc371_b",
+    "code_list": [
+      "# Read the input\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN = int(data[0])\nM = int(data[1])\n\n# Initialize a list to store the genders of the babies\ngenders = [None] * M\n\n# Iterate through the birth information\nfor i in range(M):\n    family = int(data[i*2 + 1])\n    gender = data[i*2 + 2]\n    if gender == 'M':\n        genders[i] = 'M'\n    elif gender == 'F':\n        genders[i] = 'F'\n\n# Check if the baby is named Taro\nfor i in range(M):\n    if genders[i] == 'M' and i == 0:\n        print(\"Yes\")\n    else:\n        print(\"No\")"
+    ]
+  },
+  {
+    "question_id": "abc371_a",
+    "code_list": [
+      "import sympy as sp\n\n# Define the symbols for the relationships\nS_AB = sp.Symbol('S_AB')\nS_AC = sp.Symbol('S_AC')\nS_BC = sp.Symbol('S_BC')\n\n# Define the conditions based on the relationships\nconditions = [\n    sp.Lt(S_AB, S_AC),  # A < B\n    sp.Lt(S_AB, S_BC),  # A < C\n    sp.Lt(S_AC, S_BC)   # B < C\n]\n\n# Solve the conditions to determine the order\norder = []\nfor condition in conditions:\n    if condition == sp.Lt(S_AB, S_AC):\n        order.append('A')\n    elif condition == sp.Lt(S_AB, S_BC):\n        order.append('B')\n    elif condition == sp.Lt(S_AC, S_BC):\n        order.append('C')\n\n# Determine the middle brother\nmiddle_brother = order[1]\nprint(middle_brother)"
+    ]
+  },
+  {
+    "question_id": "abc372_a",
+    "code_list": [
+      "# Read the input string\nS = input()\n\n# Remove all '.' characters from the string\nresult = S.replace('.', '')\n\n# Print the result\nprint(result)"
+    ]
+  },
+  {
+    "question_id": "abc373_a",
+    "code_list": [
+      "# Read the input strings into a list\nstrings = []\nfor _ in range(12):\n    strings.append(input())\n\n# Initialize a counter for the valid strings\nvalid_count = 0\n\n# Iterate through the list and check the condition\nfor i, s in enumerate(strings):\n    if len(s) == i + 1:\n        valid_count += 1\n\n# Print the count of valid strings\nprint(valid_count)"
+    ]
+  },
+  {
+    "question_id": "abc373_b",
+    "code_list": [
+      "def min_distance_to_z(S):\n    # Map characters to coordinates\n    char_to_coord = {char: i + 1 for i, char in enumerate(S)}\n    \n    # Initialize the total distance\n    total_distance = 0\n    \n    # Calculate the distance between consecutive characters\n    for i in range(len(S) - 1):\n        total_distance += abs(char_to_coord[S[i]] - char_to_coord[S[i + 1]])\n    \n    return total_distance\n\n# Read input\nS = input().strip()\n\n# Print the result\nprint(min_distance_to_z(S))"
+    ]
+  },
+  {
+    "question_id": "abc374_b",
+    "code_list": [
+      "# Read the input strings\nS = input()\nT = input()\n\n# Check if the strings are equal\nif len(S) == len(T):\n    print(0)\nelse:\n    # Compare characters starting from the beginning\n    for i in range(min(len(S), len(T))):\n        if S[i] != T[i]:\n            print(i + 1)\n            break"
+    ]
+  },
+  {
+    "question_id": "abc374_a",
+    "code_list": [
+      "# Read the input string\nS = input()\n\n# Check if the string ends with 'san'\nif S.endswith('san'):\n    # Print \"Yes\" if it ends with 'san'\n    print(\"Yes\")\nelse:\n    # Print \"No\" if it does not end with 'san'\n    print(\"No\")"
+    ]
+  },
+  {
+    "question_id": "abc375_b",
+    "code_list": [
+      "import math\n\ndef calculate_total_cost(N, points):\n    total_cost = 0\n    \n    # Iterate through each pair of consecutive points\n    for i in range(N):\n        x1, y1 = points[i]\n        x2, y2 = points[(i + 1) % N]\n        \n        # Calculate the Euclidean distance between the current and next point\n        distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)\n        \n        # Add the distance to the total cost\n        total_cost += distance\n    \n    return total_cost\n\n# Read input\nN = int(input())\npoints = []\nfor _ in range(N):\n    x, y = map(int, input().split())\n    points.append((x, y))\n\n# Calculate and print the total cost\ntotal_cost = calculate_total_cost(N, points)\nprint(total_cost)"
+    ]
+  },
+  {
+    "question_id": "abc375_a",
+    "code_list": [
+      "def count_valid_pairs(N, S):\n    count = 0\n    for i in range(N - 1):\n        if S[i] == '#' and S[i + 1] == '#' and S[i + 2] == '.':\n            count += 1\n    return count\n\n# Read input values\nN = int(input())\nS = input()\n\n# Calculate and print the result\nprint(count_valid_pairs(N, S))"
+    ]
+  },
+  {
+    "question_id": "abc376_a",
+    "code_list": [
+      "def count_candies(N, C, T):\n    candies = 0\n    last_candy_time = 0\n    \n    for T_i in T:\n        if T_i - last_candy_time >= C:\n            candies += 1\n            last_candy_time = T_i\n    \n    return candies\n\n# Read input\nN, C = map(int, input().split())\nT = list(map(int, input().split()))\n\n# Calculate and print the result\nprint(count_candies(N, C, T))"
+    ]
+  },
+  {
+    "question_id": "abc377_b",
+    "code_list": [
+      "def count_valid_squares(grid):\n    n = len(grid)\n    \n    # Check for existing pieces in each row\n    rows_with_pieces = [any('#' in row[i] for row in grid) for i in range(n)]\n    \n    # Check for existing pieces in each column\n    cols_with_pieces = [any('#' in col for col in zip(*grid)) for col in range(n)]\n    \n    # Count valid squares\n    valid_squares = 0\n    for i in range(n):\n        for j in range(n):\n            if not rows_with_pieces[i] and not cols_with_pieces[j]:\n                valid_squares += 1\n    \n    return valid_squares\n\n# Read the input grid\ngrid = []\nfor _ in range(8):\n    grid.append(input().strip())\n\n# Count the valid squares\nresult = count_valid_squares(grid)\nprint(result)"
+    ]
+  },
+  {
+    "question_id": "abc377_a",
+    "code_list": [
+      "def can_form_ABC(S):\n    # Count the frequency of each character in S\n    char_count = {}\n    for char in S:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    \n    # Check if all characters have a frequency of 1\n    for count in char_count.values():\n        if count != 1:\n            return \"No\"\n    \n    return \"Yes\"\n\n# Read the input\nS = input().strip()\n\n# Determine if it is possible to rearrange S to form \"ABC\"\nresult = can_form_ABC(S)\nprint(result)"
+    ]
+  },
+  {
+    "question_id": "abc378_b",
+    "code_list": [
+      "def next_collection_day(d, q, r):\n    # Calculate the remainder when d - r is divided by q\n    remainder = d % q\n    \n    # Determine the next collection day\n    if remainder == 0:\n        return d + q\n    else:\n        return d + q - remainder\n\n# Read input\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN = int(data[0])\ncollection_intervals = []\nfor _ in range(N):\n    q, r = map(int, data[2 * _ + 1 : 2 * _ + 3])\n    collection_intervals.append((q, r))\n\nQ = int(data[2 * N])\nqueries = []\nfor _ in range(Q):\n    t, d = map(int, data[2 * N + 2 * _ + 1 : 2 * N + 2 * _ + 3])\n    queries.append((t, d))\n\n# Process each query\nresults = []\nfor t, d in queries:\n    results.append(next_collection_day(d, collection_intervals[t - 1][0], collection_intervals[t - 1][1]))\n\n# Print the results\nfor result in results:\n    print(result)"
+    ]
+  },
+  {
+    "question_id": "abc378_a",
+    "code_list": [
+      "def max_operations(A):\n    # Count the occurrences of each color\n    color_counts = {}\n    for color in A:\n        if color in color_counts:\n            color_counts[color] += 1\n        else:\n            color_counts[color] = 1\n    \n    # Determine the maximum number of operations\n    max_operations = min(color_counts.values())\n    \n    return max_operations\n\n# Read input\ninput_list = list(map(int, input().split()))\n\n# Find the maximum number of operations\nresult = max_operations(input_list)\nprint(result)"
+    ]
+  },
+  {
+    "question_id": "abc379_b",
+    "code_list": [
+      "def max_strawberries(N, K, S):\n    max_count = 0\n    current_count = 0\n    \n    for char in S:\n        if char == 'O':\n            current_count += 1\n            if current_count >= K:\n                max_count = max(max_count, current_count)\n        else:\n            current_count = 0\n    \n    return max_count\n\n# Read input\nN, K = map(int, input().split())\nS = input()\n\n# Calculate and print the result\nprint(max_strawberries(N, K, S))"
+    ]
+  },
+  {
+    "question_id": "abc379_a",
+    "code_list": [
+      "# Read the input number\nN = int(input())\n\n# Extract the hundreds, tens, and ones digits\nhundreds = N // 100\ntens = (N // 10) % 10\nones = N % 10\n\n# Form the new numbers by rearranging the digits\nnew_number1 = tens * 100 + ones * 10 + hundreds\nnew_number2 = ones * 100 + hundreds * 10 + tens\n\n# Print the results\nprint(new_number1, new_number2)"
+    ]
+  },
+  {
+    "question_id": "abc380_a",
+    "code_list": [
+      "def count_digits(N):\n    # Convert the number to a string to iterate over each digit\n    str_N = str(N)\n    \n    # Initialize counters for each digit\n    count_1 = 0\n    count_2 = 0\n    count_3 = 0\n    \n    # Iterate over each character in the string representation of N\n    for char in str_N:\n        if char == '1':\n            count_1 += 1\n        elif char == '2':\n            count_2 += 1\n        elif char == '3':\n            count_3 += 1\n    \n    return count_1, count_2, count_3\n\n# Read the input number\nN = int(input())\n\n# Get the counts of each digit\ncount_1, count_2, count_3 = count_digits(N)\n\n# Check if the counts match the required values\nif count_1 == 1 and count_2 == 2 and count_3 == 3:\n    print(\"Yes\")\nelse:\n    print(\"No\")"
+    ]
+  },
+  {
+    "question_id": "abc380_b",
+    "code_list": [
+      "def reconstruct_sequence(S):\n    # Remove all characters except for the last '|'\n    while S[-1] != '|':\n        S.pop()\n    \n    # Count the number of '-' characters before the last '|'\n    count = 0\n    for char in S[:-1]:\n        if char == '-':\n            count += 1\n    \n    return count\n\n# Read the input string S\nS = input().strip()\n\n# Reconstruct the sequence A\nA = reconstruct_sequence(S)\n\n# Print the reconstructed sequence A\nprint(A)"
+    ]
+  },
+  {
+    "question_id": "abc381_a",
+    "code_list": [
+      "def is_1122_string(S):\n    # Check if the length of the string is odd\n    if len(S) % 2 == 0:\n        return False\n    \n    # Check the first half of the string\n    if S[:len(S)//2].count('1') != len(S)//2:\n        return False\n    \n    # Check the middle character\n    if S[len(S)//2] != '/':\n        return False\n    \n    # Check the second half of the string\n    if S[len(S)//2+1:].count('2') != len(S)//2:\n        return False\n    \n    return True\n\n# Read input\nN = int(input())\nS = input()\n\n# Determine if S is an 11/22 string\nif is_1122_string(S):\n    print(\"Yes\")\nelse:\n    print(\"No\")"
+    ]
+  },
+  {
+    "question_id": "abc381_b",
+    "code_list": [
+      "def is_1122_string(S):\n    # Step 1: Check if the length of S is even\n    if len(S) % 2 != 0:\n        return \"No\"\n    \n    # Step 2: Iterate through the string and check the conditions\n    for i in range(1, len(S) // 2 + 1):\n        if S[2*i-1] != S[2*i]:\n            return \"No\"\n    \n    # Step 3: Count the occurrences of each character\n    char_count = {}\n    for char in S:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    \n    # Step 4: Ensure that each character appears exactly zero or two times\n    for count in char_count.values():\n        if count != 0 and count != 2:\n            return \"No\"\n    \n    return \"Yes\"\n\n# Read input\nS = input().strip()\n\n# Print the result\nprint(is_1122_string(S))"
+    ]
+  },
+  {
+    "question_id": "abc382_a",
+    "code_list": [
+      "def count_empty_boxes(N, D, S):\n    # Count the total number of cookies initially\n    total_cookies = S.count('@')\n    \n    # Initialize the number of empty boxes\n    empty_boxes = 0\n    \n    # Iterate through each day\n    for _ in range(D):\n        # Check if there is a cookie in the first box\n        if S[0] == '@':\n            # Eat the cookie\n            S = S[1:]\n            # Increment the number of empty boxes\n            empty_boxes += 1\n        else:\n            # Skip the day\n            pass\n    \n    return empty_boxes\n\n# Read input\nN, D = map(int, input().split())\nS = input()\n\n# Output the result\nprint(count_empty_boxes(N, D, S))"
+    ]
+  },
+  {
+    "question_id": "abc382_b",
+    "code_list": [
+      "def simulate_takahashi(N, D, S):\n    # Initialize the positions of cookies\n    cookies = [i for i in range(N) if S[i] == '@']\n    \n    # Simulate the process for D days\n    for _ in range(D):\n        # Find the rightmost box with a cookie\n        rightmost_cookie_index = max(cookies)\n        \n        # Update the positions of cookies\n        cookies = [i + 1 if i < rightmost_cookie_index else i for i in cookies]\n    \n    # Determine which boxes will contain cookies after D days\n    result = ['.' if i not in cookies else '@' for i in range(N)]\n    \n    return ''.join(result)\n\n# Read input\nN, D = map(int, input().split())\nS = input()\n\n# Output the result\nprint(simulate_takahashi(N, D, S))"
+    ]
+  },
+  {
+    "question_id": "abc383_a",
+    "code_list": [
+      "# Read the input\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN = int(data[0])\nadditions = [(int(data[i]), int(data[i + 1])) for i in range(1, 2 * N, 2)]\n\n# Initialize the water level\nwater_level = 0\n\n# Process each addition\nfor time, volume in additions:\n    # Add the volume of water\n    water_level += volume\n    \n    # Subtract 1 liter per unit time until the time reaches the next addition or exceeds T_N\n    while time < additions[-1][0] and water_level > 0:\n        water_level -= 1\n        time += 1\n\n# Output the final amount of water\nprint(water_level)"
+    ]
+  },
+  {
+    "question_id": "abc384_b",
+    "code_list": [
+      "# Read the input\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN, R = map(int, data[:2])\ndata = data[2:]\n\n# Initialize the rating\nrating = R\n\n# Iterate through each ARC\nfor i in range(N):\n    D, A = map(int, data[i*2:i*2+2])\n    \n    # Check if the ARC is within the rating update range for Div. 1 or Div. 2\n    if D == 1 and 1600 <= rating <= 2799:\n        rating += A\n    elif D == 2 and 1200 <= rating <= 2399:\n        rating += A\n    \n    # Move to the next ARC\n    data = data[i*2+2:]\n\n# Output the final rating\nprint(rating)"
+    ]
+  },
+  {
+    "question_id": "abc384_a",
+    "code_list": [
+      "# Read input values\nimport sys\ninput = sys.stdin.read\ndata = input().split()\nN = int(data[0])\nc1 = data[1]\nc2 = data[2]\nS = data[3]\n\n# Replace characters in S\nmodified_S = ''.join(c if c != c1 else c2 for c in S)\n\n# Print the modified string\nprint(modified_S)"
+    ]
+  },
+  {
+    "question_id": "abc385_a",
+    "code_list": [
+      "def can_divide_into_equal_groups(A, B, C):\n    # Calculate the total sum of the three integers\n    S = A + B + C\n    \n    # Check if the total sum is even\n    if S % 2 != 0:\n        return \"No\"\n    \n    # Calculate the target sum for each group\n    target_sum = S // 2\n    \n    # Helper function to check if a subset sums up to the target sum\n    def is_subset_sum(arr, n, target):\n        # Create a 2D array to store subproblem solutions\n        dp = [[False] * (target + 1) for _ in range(n + 1)]\n        \n        # Base case: empty subset always has a sum of 0\n        for i in range(n + 1):\n            dp[i][0] = True\n        \n        # Fill the DP table\n        for i in range(1, n + 1):\n            for j in range(1, target + 1):\n                if arr[i - 1] <= j:\n                    dp[i][j] = dp[i - 1][j] or dp[i - 1][j - arr[i - 1]]\n                else:\n                    dp[i][j] = dp[i - 1][j]\n        \n        return dp[n][target]\n    \n    # Check if there exists a subset that sums up to the target sum\n    if is_subset_sum([A, B, C], 3, target_sum):\n        return \"Yes\"\n    else:\n        return \"No\"\n\n# Example usage\nA, B, C = map(int, input().split())\nprint(can_divide_into_equal_groups(A, B, C))"
+    ]
+  },
+  {
+    "question_id": "abc385_b",
+    "code_list": [
+      "def main():\n    # Read input\n    H, W, X, Y = map(int, input().split())\n    grid = [input() for _ in range(H)]\n    T = input()\n    \n    # Initialize variables\n    x, y = X, Y\n    visited_houses = set()\n    \n    # Process each character in T\n    for char in T:\n        if char == 'U':\n            y -= 1\n        elif char == 'D':\n            y += 1\n        elif char == 'L':\n            x -= 1\n        elif char == 'R':\n            x += 1\n        \n        # Check if the new position is within bounds\n        if 0 <= x < H and 0 <= y < W:\n            # Update the grid and visited houses\n            if grid[x][y] == '.':\n                visited_houses.add((x, y))\n            elif grid[x][y] == '@':\n                visited_houses.add((x, y))\n    \n    # Output the result\n    print(f\"{x} {y} {len(visited_houses)}\")\n\nif __name__ == \"__main__\":\n    main()"
+    ]
+  },
+  {
+    "question_id": "abc386_a",
+    "code_list": [
+      "def is_full_house(cards):\n    # Count the frequency of each integer\n    freq = {}\n    for card in cards:\n        if card in freq:\n            freq[card] += 1\n        else:\n            freq[card] = 1\n    \n    # Check if there are exactly two distinct integers with frequencies of 3 and 2\n    count_3 = sum(1 for count in freq.values() if count == 3)\n    count_2 = sum(1 for count in freq.values() if count == 2)\n    \n    return count_3 == 1 and count_2 == 1\n\n# Read input\nA, B, C, D = map(int, input().split())\n\n# Determine if adding one card can form a Full House\nif is_full_house([A, B, C, D]):\n    print(\"Yes\")\nelse:\n    print(\"No\")"
+    ]
+  },
+  {
+    "question_id": "abc386_b",
+    "code_list": [
+      "def min_button_presses(S):\n    # Return the length of the string S\n    return len(S)\n\n# Read the input string S\nS = input()\n\n# Calculate and print the minimum number of button presses\nprint(min_button_presses(S))"
+    ]
+  }
+]

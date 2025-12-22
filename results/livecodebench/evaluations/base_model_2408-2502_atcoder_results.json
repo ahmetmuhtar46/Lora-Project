@@ -1,0 +1,18 @@
+{
+  "model_name": "base_model",
+  "model_type": "base",
+  "checkpoint_path": null,
+  "difficulty": "2408-2502_atcoder",
+  "num_problems": 41,
+  "timestamp": "2025-12-20T14:23:12.004199",
+  "stats": {
+    "total": 41,
+    "passed": 8,
+    "failed": 33,
+    "error": 0,
+    "no_tests": 0,
+    "pass_at_1": 0.1951219512195122
+  },
+  "pass_at_1": 0.1951219512195122,
+  "detailed_log": "results/livecodebench/detailed/base_model_2408-2502_atcoder.jsonl"
+}

@@ -1,0 +1,18 @@
+{
+  "model_name": "deep_instruction_checkpoint-step-260-epoch-1",
+  "model_type": "deep_instruction",
+  "checkpoint_path": "models/deep_instruction/checkpoints/checkpoint-step-260-epoch-1",
+  "difficulty": "2408-2502_atcoder",
+  "num_problems": 41,
+  "timestamp": "2025-12-20T12:04:28.940835",
+  "stats": {
+    "total": 41,
+    "passed": 12,
+    "failed": 29,
+    "error": 0,
+    "no_tests": 0,
+    "pass_at_1": 0.2926829268292683
+  },
+  "pass_at_1": 0.2926829268292683,
+  "detailed_log": "results/livecodebench/detailed/deep_instruction_checkpoint-step-260-epoch-1_2408-2502_atcoder.jsonl"
+}

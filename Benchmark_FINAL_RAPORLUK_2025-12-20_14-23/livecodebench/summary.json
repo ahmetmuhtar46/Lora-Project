@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-12-20T14:23:21.816153",
+  "config": {
+    "base_model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "livecodebench_version": "release_v5",
+    "date_range": "2408-2502",
+    "platform": "atcoder",
+    "difficulty": "easy",
+    "model_types": [
+      "deep_instruction",
+      "diverse_instruction",
+      "deep_instruction",
+      "diverse_instruction",
+      "deep_think",
+      "deep_instruction",
+      "diverse_think",
+      "diverse_instruction"
+    ],
+    "steps": null,
+    "num_problems": 41
+  },
+  "results": [
+    {
+      "model_name": "base_model",
+      "model_type": "base",
+      "checkpoint_path": null,
+      "difficulty": "2408-2502_atcoder",
+      "num_problems": 41,
+      "timestamp": "2025-12-20T14:23:12.004199",
+      "stats": {
+        "total": 41,
+        "passed": 8,
+        "failed": 33,
+        "error": 0,
+        "no_tests": 0,
+        "pass_at_1": 0.1951219512195122
+      },
+      "pass_at_1": 0.1951219512195122,
+      "detailed_log": "results/livecodebench/detailed/base_model_2408-2502_atcoder.jsonl"
+    },
+    {
+  "model_name": "diverse_instruction_checkpoint-step-620-epoch-1",
+  "model_type": "diverse_instruction",
+  "checkpoint_path": "models/diverse_instruction/checkpoints/checkpoint-step-620-epoch-1",
+  "difficulty": "2408-2502_atcoder",
+  "num_problems": 41,
+  "timestamp": "2025-12-20T13:20:22.741547",
+  "stats": {
+    "total": 41,
+    "passed": 14,
+    "failed": 27,
+    "error": 0,
+    "no_tests": 0,
+    "pass_at_1": 0.34146341463414637
+  },
+  "pass_at_1": 0.34146341463414637,
+  "detailed_log": "results/livecodebench/detailed/diverse_instruction_checkpoint-step-620-epoch-1_2408-2502_atcoder.jsonl"
+}
