@@ -1,0 +1,96 @@
+{
+  "experiment": "deep_instruction_no_question",
+  "metric": "loss",
+  "logs": [
+    {
+      "step": 20,
+      "train_loss": 0.8356,
+      "valid_loss": 0.698083,
+      "test_loss": 0.6169
+    },
+    {
+      "step": 40,
+      "train_loss": 0.5147,
+      "valid_loss": 0.590974,
+      "test_loss": 0.4976
+    },
+    {
+      "step": 60,
+      "train_loss": 0.5072,
+      "valid_loss": 0.574385,
+      "test_loss": 0.4823
+    },
+    {
+      "step": 80,
+      "train_loss": 0.4572,
+      "valid_loss": 0.563417,
+      "test_loss": 0.4755
+    },
+    {
+      "step": 100,
+      "train_loss": 0.4732,
+      "valid_loss": 0.553862,
+      "test_loss": 0.4701
+    },
+    {
+      "step": 120,
+      "train_loss": 0.4664,
+      "valid_loss": 0.551331,
+      "test_loss": 0.4673
+    },
+    {
+      "step": 140,
+      "train_loss": 0.4621,
+      "valid_loss": 0.554387,
+      "test_loss": 0.4626
+    },
+    {
+      "step": 160,
+      "train_loss": 0.4433,
+      "valid_loss": 0.55217,
+      "test_loss": 0.4592
+    },
+    {
+      "step": 180,
+      "train_loss": 0.4478,
+      "valid_loss": 0.54835,
+      "test_loss": 0.4583
+    },
+    {
+      "step": 200,
+      "train_loss": 0.439,
+      "valid_loss": 0.550851,
+      "test_loss": 0.4572
+    },
+    {
+      "step": 220,
+      "train_loss": 0.4252,
+      "valid_loss": 0.550241,
+      "test_loss": 0.4562
+    },
+    {
+      "step": 240,
+      "train_loss": 0.4379,
+      "valid_loss": 0.548129,
+      "test_loss": 0.4549
+    },
+    {
+      "step": 260,
+      "train_loss": 0.4196,
+      "valid_loss": 0.546961,
+      "test_loss": 0.4566
+    },
+    {
+      "step": 280,
+      "train_loss": 0.4062,
+      "valid_loss": 0.552942,
+      "test_loss": 0.457
+    },
+    {
+      "step": 300,
+      "train_loss": 0.3749,
+      "valid_loss": 0.552519,
+      "test_loss": 0.4626
+    }
+  ]
+}
